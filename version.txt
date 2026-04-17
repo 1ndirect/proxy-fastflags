@@ -21,7 +21,7 @@ VSVersionInfo(
           StringStruct('InternalName', 'Flag Browser'),
           StringStruct('LegalCopyright', '© Copyright 2026 – imgui.cc – All rights reserved.'),
           StringStruct('LegalTrademarks', 'Flag Browser™ is a trademark of imgui.cc'),
-          StringStruct('OriginalFilename', 'proxymenu.exe'),
+          StringStruct('OriginalFilename', 'flagbrowser.exe'),
           StringStruct('ProductName', 'Flag Browser'),
           StringStruct('ProductVersion', '3.0')
         ])
