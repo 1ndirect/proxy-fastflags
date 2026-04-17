@@ -14,6 +14,7 @@ visibility: hidden
 
 [![GitHub Workflow Status][shield-repo-workflow]][repo-actions]
 [![Discord][shield-discord-server]][discord-invite]
+[![Patreon][shield-patreon]][patreon-link]
 
 ### *✧× links to the page ×✧*
 
@@ -80,10 +81,13 @@ Create your own fork to start making changes.
 
 <h4 align="center">© 2026 imgui.cc</h4>
 
-[shield-repo-workflow]: https://img.shields.io/github/actions/workflow/status/1ndirect/Proxy-FastFlags/retype-action.yml?branch=master&label=builds
+[shield-repo-workflow]: https://img.shields.io/github/actions/workflow/status/1ndirect/proxy-fastflags/retype-action.yml?branch=master&label=builds
 
 [shield-discord-server]: https://img.shields.io/discord/1241247795470536725?logo=discord&logoColor=white&label=discord&color=4d3dff
 
-[repo-actions]:  https://github.com/1ndirect/Proxy-FastFlags/actions
+[repo-actions]:  https://github.com/1ndirect/proxy-fastflags/actions
 
 [discord-invite]:  https://discord.gg/6zqNQTSkr
+
+[shield-patreon]: https://img.shields.io/badge/patreon-support-orange?logo=patreon&logoColor=white
+[patreon-link]: https://patreon.com/fastflags
