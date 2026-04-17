@@ -1,0 +1,89 @@
+<!--
+---
+visibility: hidden
+---
+-->
+
+<h3 align="center">
+  <img src="assets/cartikiss.gif" width="256" alt="Playboi Carti">
+</h3>
+
+<h1 align="center">imgui.cc Archive</h1>
+
+<div align="center">
+
+[![GitHub Workflow Status][shield-repo-workflow]][repo-actions]
+[![Discord][shield-discord-server]][discord-invite]
+
+### *✧× links to the page ×✧*
+
+#### ⭐ https://imgui.cc
+##### 🪞 https://fastflags.netlify.app/
+
+</div>
+
+A fast, open-source flag browser built for real-time FastFlag editing, preset management, and proxy-based control — no injection required.
+
+## ✦ How to use
+### Currently work in progress expect release in early May
+
+## ✦ Features
+
+### ⏱︎ All Flags Accessible  
+Use any flag and edit in real time, including both static and dynamic flags. There are no restrictions or allowlists, giving you full control over every available flag. Static flags are fully supported (restart required), while dynamic flags update instantly.
+
+### ✦ Presets  
+Create and manage presets that store full flag configurations, including values and keybinds. Presets can be assigned to hotkeys, allowing you to instantly toggle or activate multiple flags at once without opening the UI. Multiple presets can be used together for flexible setups.
+
+### ⌕ Search Flags  
+Quickly find flags using a fast, responsive search system with real-time filtering. Instantly narrow down large flag lists and locate specific entries or modified flags without delay.
+
+### 𐓏 Live Refresh  
+Fetch the latest Roblox ApplicationSettings directly from the source to stay up to date. This ensures better compatibility for features like chat and voice, while keeping your flag list current and stable.
+
+### 🎛 Toggle Modified Flags  
+Enable or disable all modified flags with a single click. This makes it easy to quickly switch between default and customized configurations without manually changing each flag.
+
+### ☀︎ Theme Customization  
+Customize the appearance of the interface with adjustable themes. Create, save, and share themes to personalize your experience or match your setup.
+
+### ⚙ Preset Management  
+Easily save, load, edit, and organize presets with improved reliability and performance. Preset handling has been redesigned to support faster loading, better validation, and smoother transitions between configurations.
+
+### ⌨ Keybinds  
+Assign unique hotkeys to individual flags or presets for instant control. Keybinds are responsive, reliable, and allow you to toggle features in real time without interacting with the interface.
+
+### ★ Since 2024  
+Flag Browser has been actively developed since 2024, evolving through multiple versions with continuous improvements in performance, usability, and feature set.
+
+## ✦ How to Contribute
+
+We welcome contributions to improve functionality, stability, and features.
+
+### 1. Fork the Repository  
+Create your own fork to start making changes.  
+
+### 2. Make Changes  
+- Follow existing structure and formatting  
+- Keep code clean and consistent  
+- Test before committing  
+
+### 3. Submit a Pull Request  
+- Clearly describe your changes  
+- Include proof if needed (screenshots, logs, etc.)  
+
+## ✦ Notes
+
+- static flags require a roblox restart to apply  
+- uses proxy interception (no injection)  
+- config files are automatically generated on first launch  
+
+<h4 align="center">© 2026 imgui.cc</h4>
+
+[shield-repo-workflow]: https://img.shields.io/github/actions/workflow/status/1ndirect/Proxy-FastFlags/retype-action.yml?branch=master&label=builds
+
+[shield-discord-server]: https://img.shields.io/discord/1241247795470536725?logo=discord&logoColor=white&label=discord&color=4d3dff
+
+[repo-actions]:  https://github.com/1ndirect/Proxy-FastFlags/actions
+
+[discord-invite]:  https://discord.gg/6zqNQTSkr
