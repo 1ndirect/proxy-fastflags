@@ -16,10 +16,28 @@ visibility: hidden
 [![Discord][shield-discord-server]][discord-invite]
 [![Patreon][shield-patreon]][patreon-link]
 
+</div>
+
+> [!IMPORTANT]
+>
+> This project was originally created in 2024 before the fastflags whitelist and was available on Patreon for $8.99 as a way for users to support development.
+>
+> The goal has always been to help people explore and use fastflags in a simple and accessible way. Over time, we noticed others redistributing and selling modified versions of the tool for personal profit. We don't like that since we work hard to keep it updated and working for our supporters.
+>
+> To keep things transparent and accessible, we've decided to open source the project so everyone can use it, learn from it, and contribute to it freely.
+>
+> Even after Roblox's whitelist changes, the current method is still working — and we want to make sure the whole fastflags community continues to have open access to it without having to pay for money.
+>
+> This repository represents that direction. Contributions, improvements, and experimentation are all welcome. full finished source code will be available in early may.
+>
+> from the developers of imgui.cc
+
+
+<div align="center">
+
 ### *✧× links to the page ×✧*
 
 #### ⭐ https://imgui.cc
-##### 🪞 https://fastflags.netlify.app/
 
 </div>
 
@@ -31,8 +49,7 @@ A fast, open-source flag browser built for real-time fastflag editing, preset ma
   <img src="https://github.com/user-attachments/assets/6446ea74-290e-40d8-9281-edcbbc4fad81" width="30%" />
 </p>
 
-
-## ✦ How to use
+## ✦ How to use (TBA)
 ### Currently work in progress expect release in early May
 
 ## ✦ Features
@@ -85,6 +102,9 @@ Create your own fork to start making changes.
 - static flags require a roblox restart to apply  
 - uses proxy interception (no injection)  
 - config files are automatically generated on first launch  
+
+## ✦ Developers (TBA)
+ill add them later
 
 <h4 align="center">© 2026 imgui.cc</h4>
 
