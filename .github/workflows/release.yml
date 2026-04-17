@@ -45,13 +45,13 @@ jobs:
     - name: Rename EXE
       shell: pwsh
       run: |
-        move dist\main.exe proxymenu.exe
+        move dist\main.exe flagbrowser.exe
 
     - name: Upload to GitHub Releases
       uses: softprops/action-gh-release@v2
       with:
         name: imgui ${{ steps.get_version.outputs.version }}
         tag_name: v${{ steps.get_version.outputs.version }}
-        files: proxymenu.exe
+        files: flagbrowser.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
