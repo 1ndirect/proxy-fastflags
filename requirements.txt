@@ -1,1 +1,8 @@
-
+pyOpenSSL
+certifi
+dearpygui
+pywin32
+keyboard
+requests
+pyperclip
+urllib3
