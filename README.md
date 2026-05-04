@@ -5,29 +5,17 @@ visibility: hidden
 -->
 
 <h3 align="center">
-  <img src="assets/carti.jpg" width="256" alt="Playboi Carti">
+  <img src="assets/diversion.png" width="128" alt="Playboi Carti">
 </h3>
 
-<h1 align="center">Flag Browser by imgui.cc</h1>
+<h1 align="center">Diversion</h1>
+<h6 align="center">a.k.a Flag Browser</h6>
 
 <div align="center">
 
 [![GitHub Workflow Status][shield-repo-workflow]][repo-actions]
 [![Discord][shield-discord-server]][discord-invite]
 [![Patreon][shield-patreon]][patreon-link]
-
-</div>
-
-> [!IMPORTANT]
-> https://imgui.cc
-
-<div align="center">
-
-### *✧× links to the page ×✧*
-
-#### ⭐ https://imgui.cc
-
-</div>
 
 A fast, open-source flag browser built for real-time fastflag editing, preset management, and proxy-based control — no injection required.
 
@@ -37,40 +25,45 @@ A fast, open-source flag browser built for real-time fastflag editing, preset ma
   <img src="https://github.com/user-attachments/assets/6446ea74-290e-40d8-9281-edcbbc4fad81" width="30%" />
 </p>
 
+</div>
+<div align="center">
+
+### *✧× links to the page ×✧*
+
+#### ⭐ https://imgui.cc
+
+</div>
+
+## Frequently Asked Questions
+
+**Q: When will this be released for free and open source?**
+
+**A:** ~July
+
+**Q: Is this malware?**
+
+**A:** no
+
+**Q: Can using this get me banned?**
+
+**A:** No, it shouldn't. it doesn't interact with the Roblox client in the same way that exploits do.
 ## ✦ How to use (TBA)
-### Currently work in progress expect release in early May
+### TBA
 
 ## ✦ Features
 
-### ⏱︎ All Flags Accessible  
-Use any flag and edit in real time, including both static and dynamic flags. There are no restrictions or allowlists, giving you full control over every available flag. Static flags are fully supported (restart required), while dynamic flags update instantly.
-
-### ✦ Presets  
-Create and manage presets that store full flag configurations, including values and keybinds. Presets can be assigned to hotkeys, allowing you to instantly toggle or activate multiple flags at once without opening the UI. Multiple presets can be used together for flexible setups.
-
-### ⌕ Search Flags  
-Quickly find flags using a fast, responsive search system with real-time filtering. Instantly narrow down large flag lists and locate specific entries or modified flags without delay.
-
-### 𐓏 Live Refresh  
-Fetch the latest Roblox ApplicationSettings directly from the source to stay up to date. This ensures better compatibility for features like chat and voice, while keeping your flag list current and stable.
-
-### 🎛 Toggle Modified Flags  
-Enable or disable all modified flags with a single click. This makes it easy to quickly switch between default and customized configurations without manually changing each flag.
-
-### ☀︎ Theme Customization  
-Customize the appearance of the interface with adjustable themes. Create, save, and share themes to personalize your experience or match your setup.
-
-### ⚙ Preset Management  
-Easily save, load, edit, and organize presets with improved reliability and performance. Preset handling has been redesigned to support faster loading, better validation, and smoother transitions between configurations.
-
-### ⌨ Keybinds  
-Assign unique hotkeys to individual flags or presets for instant control. Keybinds are responsive, reliable, and allow you to toggle features in real time without interacting with the interface.
-
-### ★ Since 2024  
-Flag Browser has been actively developed since 2024, evolving through multiple versions with continuous improvements in performance, usability, and feature set.
+* View every available flag in one place
+* All Flags Accessible – Edit any flag in real-time in-game (static & dynamic supported)
+* Presets – Save and toggle full flag setups with hotkeys
+* Search Flags – Quickly find flags with real-time search
+* Live Refresh – Update Roblox settings directly from source
+* Toggle Modified Flags – Enable/disable all custom flags in one click
+* Theme Customization – Personalize the interface with custom themes
+* Preset Management – Easily save, load, and organize presets
+* Keybinds – Assign hotkeys to flags or presets for quick control
+* Since 2024 – Actively developed with ongoing improvements
 
 ## ✦ How to Contribute
-
 We welcome contributions to improve functionality, stability, and features.
 
 ### 1. Fork the Repository  
@@ -91,8 +84,16 @@ Create your own fork to start making changes.
 - uses proxy interception (no injection)  
 - config files are automatically generated on first launch  
 
-## ✦ Developers (TBA)
-ill add them later
+## ✦ Developers
+### V1
+* **@satlybpro**
+* **[@genocyder](https://discord.com/users/1451489285525209119)**
+* **[@popbob](https://discord.com/users/702054592262701127)**
+* **[@herfdiug](https://discordapp.com/users/333168913544380436)**
+
+### V2-V3
+* **@fastvariable**
+* **[@Shaw](https://discordapp.com/users/1276769254359695411)**
 
 <h4 align="center">© 2026 imgui.cc</h4>
 
