@@ -1,57 +1,258 @@
-name: Release Build
+name: Release Build (onefile + signing)
 
 on:
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-and-release:
-    runs-on: windows-latest
-
+    runs-on: windows-2025-vs2026
     permissions:
       contents: write
 
     steps:
+
+    # =====================================================
+    # CHECKOUT
+    # =====================================================
+
     - name: Checkout code
       uses: actions/checkout@v6
+
+    # =====================================================
+    # PYTHON SETUP
+    # =====================================================
 
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
-        python-version: '3.14'
+        python-version: '3.12'
+
+    # =====================================================
+    # INSTALL DEPENDENCIES
+    # =====================================================
 
     - name: Install dependencies
       shell: pwsh
       run: |
         python -m pip install --upgrade pip
+
+        if (Test-Path requirements.txt) {
+          pip install -r requirements.txt
+        }
+
         pip install pyinstaller
-        if (Test-Path requirements.txt) { pip install -r requirements.txt }
+
+    # =====================================================
+    # EXTRACT VERSION
+    # =====================================================
 
     - name: Extract FileVersion
       id: get_version
       shell: pwsh
       run: |
         $content = Get-Content version.txt
+
         foreach ($line in $content) {
           if ($line -match "FileVersion'.*?'(.*?)'") {
             $version = $matches[1]
             break
           }
         }
+
+        if (-not $version) {
+          throw "Failed to extract FileVersion from version.txt"
+        }
+
         echo "version=$version" >> $env:GITHUB_OUTPUT
 
-    - name: Build EXE
-      run: pyinstaller main.py --onefile --windowed --icon=favicon.ico --version-file=version.txt --clean --noupx
+    # =====================================================
+    # GENERATE BUILD INFO
+    # =====================================================
 
-    - name: Rename EXE
+    - name: Generate build info
       shell: pwsh
       run: |
-        move dist\main.exe flagbrowser.exe
+        $date = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+        $kernel = "$env:GITHUB_ACTIONS"
+        $osInfo = (Get-CimInstance Win32_OperatingSystem).Caption
+        $shellName = $PSVersionTable.PSEdition + " " + $PSVersionTable.PSVersion.ToString()
+
+        $commit = git rev-parse --short HEAD
+        $branch = git rev-parse --abbrev-ref HEAD
+
+        $python = (python --version)
+        $runner = $env:RUNNER_OS
+        $arch = $env:PROCESSOR_ARCHITECTURE
+
+        $version = "${{ steps.get_version.outputs.version }}"
+
+        $packages = (pip freeze | Sort-Object) -join "`r`n"
+
+        @"
+        ██████████   █████ █████   █████ ██████████ ███████████    █████████  █████    ███████    ██████   █████
+        ░░███░░░░███ ░░███ ░░███   ░░███ ░░███░░░░░█░░███░░░░░███  ███░░░░░███░░███   ███░░░░░███ ░░██████ ░░███ 
+        ░███   ░░███ ░███  ░███    ░███  ░███  █ ░  ░███    ░███ ░███    ░░░  ░███  ███     ░░███ ░███░███ ░███ 
+        ░███    ░███ ░███  ░███    ░███  ░██████    ░██████████  ░░█████████  ░███ ░███      ░███ ░███░░███░███ 
+        ░███    ░███ ░███  ░░███   ███   ░███░░█    ░███░░░░░███  ░░░░░░░░███ ░███ ░███      ░███ ░███ ░░██████ 
+        ░███    ███  ░███   ░░░█████░    ░███ ░   █ ░███    ░███  ███    ░███ ░███ ░░███     ███  ░███  ░░█████ 
+        ██████████   █████    ░░███      ██████████ █████   █████░░█████████  █████ ░░░███████░   █████  ░░█████
+        ░░░░░░░░░░   ░░░░░      ░░░      ░░░░░░░░░░ ░░░░░   ░░░░░  ░░░░░░░░░  ░░░░░    ░░░░░░░    ░░░░░    ░░░░░ 
+                                                                                                               
+
+        ⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+        OS               : $osInfo
+        Kernel           : GitHub Actions ($kernel)
+        Shell            : $shellName
+        Python           : $python
+        Architecture     : $arch
+        Workflow Runner  : $runner
+
+        ⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+        Build Version    : $version
+        Build Date       : $date
+        Git Branch       : $branch
+        Git Commit       : $commit
+
+        ⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+
+        Installed Python Packages
+
+        $packages
+
+        ⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+
+        Built Using
+        - PyInstaller
+        - GitHub Actions
+        - $python
+
+        ⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+        
+        █████ ██████   ██████   █████████  █████  █████ █████      █████████    █████████ 
+        ░░███ ░░██████ ██████   ███░░░░░███░░███  ░░███ ░░███      ███░░░░░███  ███░░░░░███
+        ░███  ░███░█████░███  ███     ░░░  ░███   ░███  ░███     ███     ░░░  ███     ░░░ 
+        ░███  ░███░░███ ░███ ░███          ░███   ░███  ░███    ░███         ░███         
+        ░███  ░███ ░░░  ░███ ░███    █████ ░███   ░███  ░███    ░███         ░███         
+        ░███  ░███      ░███ ░░███  ░░███  ░███   ░███  ░███    ░░███     ███░░███     ███
+        █████ █████     █████ ░░█████████  ░░████████   █████ ██ ░░█████████  ░░█████████ 
+        ░░░░░ ░░░░░     ░░░░░   ░░░░░░░░░    ░░░░░░░░   ░░░░░ ░░   ░░░░░░░░░    ░░░░░░░░░              
+
+        ⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+
+        "@ | Out-File info.txt -Encoding utf8
+
+    # =====================================================
+    # BUILD EXE
+    # =====================================================
+
+    - name: Build EXE (onefile)
+      shell: pwsh
+      run: |
+        pyinstaller main.py `
+          --onefile `
+          --name Diversion `
+          --windowed `
+          --icon=Divertion.ico `
+          --clean `
+          --uac-admin `
+          --noupx `
+          --version-file=version.txt 
+          
+    # =====================================================
+    # CREATE SELF-SIGNED CERTIFICATE
+    # =====================================================
+
+    - name: Create self-signed certificate
+      shell: pwsh
+      run: |
+        $cert = New-SelfSignedCertificate `
+          -Type CodeSigningCert `
+          -Subject "CN=imgui.cc" `
+          -KeyAlgorithm RSA `
+          -KeyLength 2048 `
+          -CertStoreLocation "Cert:\CurrentUser\My"
+
+        $pwd = ConvertTo-SecureString "16i1kyqkpreb90ewtcxkfxfwnfdzbp" -Force -AsPlainText
+
+        Export-PfxCertificate `
+          -Cert $cert `
+          -FilePath cert.pfx `
+          -Password $pwd
+
+    # =====================================================
+    # LOCATE SIGNTOOL
+    # =====================================================
+
+    - name: Locate signtool
+      shell: pwsh
+      run: |
+        $signtool = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin\" `
+          -Recurse `
+          -Filter signtool.exe `
+          -ErrorAction SilentlyContinue |
+          Where-Object { $_.FullName -match "x64" } |
+          Select-Object -First 1 -ExpandProperty FullName
+
+        if (-not $signtool) {
+          throw "signtool.exe not found"
+        }
+
+        echo "SIGTOOL_PATH=$signtool" >> $env:GITHUB_ENV
+
+    # =====================================================
+    # SIGN EXECUTABLE
+    # =====================================================
+
+    - name: Sign executable
+      shell: pwsh
+      run: |
+        $exePath = "dist\Diversion.exe"
+
+        if (-not (Test-Path $exePath)) {
+          throw "Executable not found: $exePath"
+        }
+
+        & $env:SIGTOOL_PATH sign `
+          /f cert.pfx `
+          /p 16i1kyqkpreb90ewtcxkfxfwnfdzbp `
+          /fd SHA256 `
+          /tr http://ts.quovadisglobal.com/eu `
+          /td SHA256 `
+          $exePath
+
+    # =====================================================
+    # PREPARE RELEASE ZIP
+    # =====================================================
+
+    - name: Prepare ZIP
+      shell: pwsh
+      run: |
+        New-Item -ItemType Directory -Force -Path release | Out-Null
+
+        Move-Item dist\Diversion.exe release\
+        Move-Item info.txt release\
+
+        if (Test-Path LICENSE) {
+          Copy-Item LICENSE release\
+        }
+
+        & "C:\Program Files\7-Zip\7z.exe" a `
+          -tzip `
+          "Diversion-${{ steps.get_version.outputs.version }}.zip" `
+          ".\release\*"
+
+    # =====================================================
+    # UPLOAD GITHUB RELEASE
+    # =====================================================
 
     - name: Upload to GitHub Releases
       uses: softprops/action-gh-release@v2
       with:
-        name: Flag Browser V${{ steps.get_version.outputs.version }}
+        name: Diversion ${{ steps.get_version.outputs.version }}
         tag_name: v${{ steps.get_version.outputs.version }}
-        files: flagbrowser.exe
+        files: Diversion-${{ steps.get_version.outputs.version }}.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
