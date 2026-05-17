@@ -50,13 +50,6 @@ A fast, open-source flag browser built for real-time fastflag editing, preset ma
 ## ✦ How to use (TBA)
 ### TBA
 
-### ✦ V3 Planned Features
-* **Roblox (Internal)**
-* **Subplace Teleporting**
-* **Cache Editor**
-* **Asset Proxy**
-* **Lag Switcher**
-
 ## ✦ V3 Features
 
 * View every available flag in one place
@@ -69,6 +62,13 @@ A fast, open-source flag browser built for real-time fastflag editing, preset ma
 * Preset Management – Easily save, load, and organize presets
 * Keybinds – Assign hotkeys to flags or presets for quick control
 * Since 2024 – Actively developed with ongoing improvements
+
+## ✦ V3 Planned Features
+* **Roblox (Internal)**
+* **Subplace Teleporting**
+* **Cache Editor**
+* **Asset Proxy**
+* **Lag Switcher**
 
 ## ✦ How to Contribute
 We welcome contributions to improve functionality, stability, and features.
