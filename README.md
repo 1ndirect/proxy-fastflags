@@ -34,7 +34,7 @@ A fast, open-source flag browser built for real-time fastflag editing, preset ma
 
 </div>
 
-## Frequently Asked Questions
+## ✦ Frequently Asked Questions
 
 **Q: When will this be released for free and open source?**
 
@@ -50,7 +50,14 @@ A fast, open-source flag browser built for real-time fastflag editing, preset ma
 ## ✦ How to use (TBA)
 ### TBA
 
-## ✦ Features
+### ✦ V3 Planned Features
+* **Roblox (Internal)**
+* **Subplace Teleporting**
+* **Cache Editor**
+* **Asset Proxy**
+* **Lag Switcher**
+
+## ✦ V3 Features
 
 * View every available flag in one place
 * All Flags Accessible – Edit any flag in real-time in-game (static & dynamic supported)
@@ -82,7 +89,10 @@ Create your own fork to start making changes.
 
 - static flags require a roblox restart to apply  
 - uses proxy interception (no injection)  
-- config files are automatically generated on first launch  
+- config files are automatically generated on first launch
+
+## ✦ Also check out:
+* **[Fleasion](https://github.com/fleasion/Fleasion)**
 
 ## ✦ Developers
 ### V1
@@ -91,8 +101,7 @@ Create your own fork to start making changes.
 * **[@popbob](https://discord.com/users/702054592262701127)**
 * **[@herfdiug](https://discordapp.com/users/333168913544380436)**
 
-### V2-V3
-* **@fastvariable**
+### V3
 * **[@Shaw](https://discordapp.com/users/1276769254359695411)**
 
 <h4 align="center">© 2026 imgui.cc</h4>
