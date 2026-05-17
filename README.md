@@ -17,7 +17,7 @@ visibility: hidden
 [![Discord][shield-discord-server]][discord-invite]
 [![Patreon][shield-patreon]][patreon-link]
 
-A fast, open-source flag browser built for real-time fastflag editing, preset management, and proxy-based control — no injection required.
+A fast, open-source flag browser built for real-time fastflag editing, preset management, and proxy-based control via local proxy.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9e098aa1-7df7-4629-a169-2cbc5bda85d4" width="30%" />
